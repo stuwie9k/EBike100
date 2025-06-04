@@ -7,3 +7,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // window.location.href = "/new-arrivals"; // Uncomment for real nav
   });
 });
+
+// Mobile menu toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const navbar = document.querySelector(".navbar");
+  const toggle = document.querySelector(".menu-toggle");
+
+  toggle.addEventListener("click", () => {
+    navbar.classList.toggle("open");
+  });
+});
