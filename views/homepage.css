@@ -1,3 +1,4 @@
+/* Reset and base */
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +11,7 @@ body {
   color: #fff;
 }
 
-/* ============ NAVBAR ============ */
+/* === NAVBAR === */
 .navbar {
   background-color: #000;
   color: #fff;
@@ -26,14 +27,12 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 .logo-icon {
   width: auto;
-  height: 48px; /* Increase this as needed */
-  max-height: 60px; /* Ensure it doesn't stretch navbar */
+  height: 60px;
+  max-height: 60px;
   object-fit: contain;
   display: block;
 }
@@ -54,39 +53,72 @@ body {
   border-bottom: 1px solid #fff;
 }
 
+/* === Search Container === */
 .search-container {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
-.search-container input {
-  padding: 6px 12px;
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 180px;
+}
+
+.search-wrapper input {
+  width: 100%;
+  padding: 8px 36px 8px 12px;
   border-radius: 20px;
   border: none;
   outline: none;
   font-size: 0.9rem;
-  width: 150px;
+  background-color: #fff;
+  color: #000;
 }
 
 .search-btn {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-sm {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* === Shopping Cart Icon - Always Visible === */
+.cart-icon {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.cart-icon img {
   width: 22px;
   height: 22px;
   object-fit: contain;
   cursor: pointer;
 }
 
-.cart-icon {
-  margin-left: 8px;
-}
-
 .menu-toggle {
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
+  background: none;
+  border: none;
 }
 
-/* ============ HERO SECTION ============ */
+/* === HERO SECTION === */
 .hero-section {
   background-image: url("../assets/images/background.png");
   background-size: cover;
@@ -131,21 +163,29 @@ body {
   background-color: #e6ac00;
 }
 
-/* ============ RESPONSIVE MEDIA QUERIES ============ */
-
+/* === RESPONSIVE SCREEN QUERIES === */
 @media (max-width: 1024px) {
   .hero-content h1 {
     font-size: 2.5rem;
   }
+
   .subheading {
     font-size: 1.25rem;
   }
 }
 
+/* Navbar inside hamburger icon */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
 
   .nav-links {
@@ -155,22 +195,26 @@ body {
     display: none;
   }
 
-  .nav-links a {
-    padding: 10px 0;
+  .navbar.open .nav-links {
+    display: flex;
   }
 
   .search-container {
-    margin-top: 10px;
+    flex-direction: column;
     width: 100%;
-    justify-content: space-between;
+    margin-top: 10px;
+    display: none; /* hidden by default on mobile */
+  }
+
+  .navbar.open .search-container {
+    display: flex; /* shown on hamburger toggle */
   }
 
   .menu-toggle {
     display: block;
-  }
-
-  .navbar.open .nav-links {
-    display: flex;
+    cursor: pointer;
+    background: none;
+    border: none;
   }
 
   .hero-content h1 {
@@ -184,29 +228,5 @@ body {
   .cta-button {
     padding: 10px 20px;
     font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-section {
-    padding: 0 8%;
-    text-align: left;
-  }
-
-  .hero-content h1 {
-    font-size: 1.8rem;
-  }
-
-  .subheading {
-    font-size: 1rem;
-  }
-
-  .cta-button {
-    padding: 10px 18px;
-    font-size: 0.85rem;
-  }
-
-  .search-container input {
-    width: 100px;
   }
 }

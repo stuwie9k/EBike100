@@ -1,19 +1,22 @@
 // homepage.js
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Handle CTA button click
   const button = document.querySelector(".cta-button");
-  button.addEventListener("click", () => {
-    alert("Redirecting to new arrivals...");
-    // window.location.href = "/new-arrivals"; // Uncomment for real nav
-  });
-});
+  if (button) {
+    button.addEventListener("click", () => {
+      alert("Redirecting to new arrivals...");
+      // window.location.href = "/new-arrivals";
+    });
+  }
 
-// Mobile menu toggle
-document.addEventListener("DOMContentLoaded", () => {
+  // Handle mobile menu toggle
   const navbar = document.querySelector(".navbar");
   const toggle = document.querySelector(".menu-toggle");
 
-  toggle.addEventListener("click", () => {
-    navbar.classList.toggle("open");
-  });
+  if (navbar && toggle) {
+    toggle.addEventListener("click", () => {
+      navbar.classList.toggle("open");
+    });
+  }
 });
