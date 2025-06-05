@@ -61,6 +61,12 @@ main {
   max-width: 280px;
   border-radius: 6px;
   margin-bottom: 12px;
+  transition: transform 0.3s ease;
+  border-radius: 4px;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
 }
 
 .product-card h3 {
