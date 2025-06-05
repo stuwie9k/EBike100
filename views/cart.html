@@ -3,21 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EBike100 — Shop The Best E-bikes</title>
-    <link rel="stylesheet" href="views/homepage.css" />
-    <link rel="stylesheet" href="main.css" />
+    <title>EBike100 MK220</title>
+    <link rel="stylesheet" href="cart.css" />
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
   </head>
+
   <body>
     <header class="navbar">
       <div class="navbar-top">
         <div class="logo">
-          <a href="Ebike.html">
+          <a href="../Ebike.html">
             <img
-              src="assets/images/whiteLogo.png"
+              src="../assets/images/whiteLogo.png"
               alt="Logo Icon"
               class="logo-icon"
             />
@@ -27,7 +30,7 @@
         <div class="navbar-icons">
           <div class="cart-icon-mobile">
             <img
-              src="assets/images/ShoppingCart.png"
+              src="../assets/images/ShoppingCart.png"
               alt="Cart Icon"
               class="icon-sm cart-icon"
             />
@@ -37,8 +40,8 @@
       </div>
 
       <nav class="nav-links">
-        <a href="#" class="active">Home</a>
-        <a href="views/productpage.html">E-Bikes</a>
+        <a href="../EBike.html">Home</a>
+        <a href="productpage.html" class="active">E-Bikes</a>
         <a href="#">Accessories</a>
         <a href="#">Services</a>
         <a href="#">About Us</a>
@@ -51,16 +54,17 @@
           <input type="text" placeholder="Search" />
           <button class="search-btn">
             <img
-              src="assets/images/SearchIcon.png"
+              src="../assets/images/SearchIcon.png"
               alt="Search Icon"
               class="icon-sm"
             />
           </button>
         </div>
+
         <div class="cart-icon-desktop">
-          <a href="views/cart.html">
+          <a href="cart.html">
             <img
-              src="assets/images/ShoppingCart.png"
+              src="../assets/images/ShoppingCart.png"
               alt="Cart Icon"
               class="icon-sm cart-icon"
             />
@@ -69,17 +73,20 @@
       </div>
     </header>
 
-    <section class="hero-section">
-      <div class="hero-content">
-        <p class="subheading">New Arrivals</p>
-        <h1>Brand New E-Bikes</h1>
-        <a href="views/productpage.html">
-          <button class="cta-button">View More</button>
-        </a>
-      </div>
-    </section>
+    <main id="cart-container" class="cart-container empty">
+      <h2>Your Cart is Empty</h2>
+      <p>
+        Once you add something to your cart, it will appear here. Ready to start
+        shopping?
+      </p>
+      <button
+        class="shop-btn"
+        onclick="window.location.href='productpage.html'"
+      >
+        Shop Now
+      </button>
+    </main>
 
-    <script src="views/homepage.js"></script>
-    <script src="main.js"></script>
+    <script src="cart.js"></script>
   </body>
 </html>
