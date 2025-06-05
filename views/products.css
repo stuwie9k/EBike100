@@ -15,13 +15,25 @@ main {
 
 .product-layout {
   display: flex;
-  padding: 0 5%;
+  align-items: flex-start; /* aligns top of image with top of info */
   gap: 40px;
-  flex-wrap: wrap;
+  padding: 0 5%;
+  flex-wrap: nowrap;
 }
 
 .product-gallery {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center thumbnails below image */
+  justify-content: flex-start;
+}
+
+.main-img {
+  width: 100%;
+  max-width: 480px; /* or larger if needed */
+  height: auto;
+  object-fit: contain;
 }
 
 .product-gallery img.main-img {
@@ -31,6 +43,7 @@ main {
 
 .thumbnail-row {
   display: flex;
+  justify-content: center;
   gap: 10px;
   margin-top: 10px;
 }
@@ -39,6 +52,8 @@ main {
   width: 80px;
   height: 80px;
   object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .product-info {
