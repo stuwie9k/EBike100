@@ -10,7 +10,12 @@ main {
   display: block;
   margin: 20px 5%;
   color: #000;
+  font-weight: bold;
   text-decoration: none;
+}
+
+.back-link:hover {
+  color: gray;
 }
 
 .product-layout {

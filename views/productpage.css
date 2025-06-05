@@ -47,6 +47,15 @@ main {
   align-items: center;
 }
 
+.product-card a {
+  text-decoration: none; /* Removes underline */
+  color: black; /* Changes blue link text to black */
+}
+
+.product-card a:hover {
+  color: gray; /* Optional: changes color on hover */
+}
+
 .product-card img {
   width: 100%;
   max-width: 280px;
