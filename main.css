@@ -98,20 +98,6 @@ body {
   object-fit: contain;
 }
 
-/* Shopping Cart Icon - Always Visible */
-.cart-icon {
-  display: flex;
-  align-items: center;
-  margin-left: 12px;
-}
-
-.cart-icon img {
-  width: 22px;
-  height: 22px;
-  object-fit: contain;
-  cursor: pointer;
-}
-
 .menu-toggle {
   display: none;
   font-size: 1.5rem;
@@ -132,11 +118,12 @@ body {
   }
 }
 
-/* Navbar inside hamburger icon */
+/* Hamburger icon contents */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
+    flex-wrap: wrap;
   }
 
   .navbar-top {
@@ -146,15 +133,23 @@ body {
     width: 100%;
   }
 
+  .navbar-icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
   .nav-links {
     flex-direction: column;
     width: 100%;
     margin-top: 10px;
     display: none;
+    flex-wrap: wrap;
   }
 
   .navbar.open .nav-links {
     display: flex;
+    align-items: flex-end;
   }
 
   .search-container {
@@ -166,6 +161,17 @@ body {
 
   .navbar.open .search-container {
     display: flex; /* shown on hamburger toggle */
+    align-items: flex-end;
+  }
+
+  .search-wrapper {
+    display: flex;
+    width: 80%; /* size of search bar */
+  }
+
+  .cart-icon {
+    display: flex;
+    align-items: center;
   }
 
   .menu-toggle {
