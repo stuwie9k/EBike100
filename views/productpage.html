@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EBike100 — Shop The Best E-bikes</title>
-    <link rel="stylesheet" href="views/homepage.css" />
-    <link rel="stylesheet" href="main.css" />
+    <title>Search Results – EBike100</title>
+    <link rel="stylesheet" href="productpage.css" />
+    <link rel="stylesheet" href="../main.css" />
   </head>
   <body>
     <header class="navbar">
       <div class="navbar-top">
         <div class="logo">
-          <a href="Ebike.html">
+          <a href="../Ebike.html">
             <img
-              src="assets/images/whiteLogo.png"
+              src="../assets/images/whiteLogo.png"
               alt="Logo Icon"
               class="logo-icon"
             />
@@ -33,8 +33,8 @@
       </div>
 
       <nav class="nav-links">
-        <a href="#" class="active">Home</a>
-        <a href="views/productpage.html">E-Bikes</a>
+        <a href="../EBike.html">Home</a>
+        <a href="#" class="active">E-Bikes</a>
         <a href="#">Accessories</a>
         <a href="#">Services</a>
         <a href="#">About Us</a>
@@ -47,7 +47,7 @@
           <input type="text" placeholder="Search" />
           <button class="search-btn">
             <img
-              src="assets/images/SearchIcon.png"
+              src="../assets/images/SearchIcon.png"
               alt="Search Icon"
               class="icon-sm"
             />
@@ -55,7 +55,7 @@
         </div>
         <div class="cart-icon-desktop">
           <img
-            src="assets/images/ShoppingCart.png"
+            src="../assets/images/ShoppingCart.png"
             alt="Cart Icon"
             class="icon-sm cart-icon"
           />
@@ -63,14 +63,29 @@
       </div>
     </header>
 
-    <section class="hero-section">
-      <div class="hero-content">
-        <p class="subheading">New Arrivals</p>
-        <h1>Brand New E-Bikes</h1>
-        <button class="cta-button">View More</button>
-      </div>
-    </section>
+    <main class="product-results">
+      <p class="search-label">Search Results for</p>
+      <h2 class="search-query">"Cargo bike"</h2>
+      <p class="result-count">5 Products</p>
 
-    <script src="views/homepage.js"></script>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="assets/images/background.png" alt="Product 1" />
+          <h3>EBike100 Electric Cargo Bike MK514/MK516 + NFC Card</h3>
+          <p>$850.00 AUD</p>
+        </div>
+        <div class="product-card">
+          <img src="assets/images/background.png" alt="Product 2" />
+          <h3>Electric Cargo Bike MK220</h3>
+          <p>$950.00 AUD</p>
+        </div>
+        <div class="product-card">
+          <img src="assets/images/background.png" alt="Product 3" />
+          <h3>FLYEBIKE Electric Cargo Bike MK014/MK016</h3>
+          <p>$950.00 AUD</p>
+        </div>
+      </div>
+    </main>
+    <script src="productpage.js"></script>
   </body>
 </html>
