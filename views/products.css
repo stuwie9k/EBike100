@@ -1,5 +1,5 @@
 main {
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
   color: #000;
@@ -57,19 +57,30 @@ main {
   width: 100px;
   height: 100px;
   object-fit: cover;
+  transition: transform 0.3s ease;
   cursor: pointer;
+}
+
+.thumbnail-row img:hover {
+  transform: scale(1.05);
 }
 
 .product-info {
   display: flex;
   flex-direction: column;
   flex: 1;
+  font-weight: 300;
   max-width: 500px;
 }
 
+.product-info h1 {
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
 .price {
-  font-size: 1.2rem;
-  margin: 10px 0;
+  font-size: 1.1rem;
+  margin: 15px 0;
 }
 
 .options label {
@@ -111,10 +122,14 @@ main {
 }
 
 .accordion-item h3 {
+  font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
 }
 
 .accordion-item .content {
+  font-size: 0.8rem;
+  margin-top: 10px;
   display: none;
 }
 
@@ -174,10 +189,24 @@ main {
   }
 
   .thumbnail-row img {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px; /* thumbnail image size */
     object-fit: cover;
-    border-radius: 4px;
     cursor: pointer;
+  }
+
+  .accordion-item h3 {
+    font-size: 0.9rem;
+    cursor: pointer;
+  }
+
+  .accordion-item .content {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    display: none;
+  }
+
+  .back-link {
+    font-size: 0.8rem;
   }
 }
