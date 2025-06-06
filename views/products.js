@@ -9,18 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Only one button per group can be selected//
-document.querySelectorAll(".option-group").forEach((group) => {
-  group.querySelectorAll("button").forEach((button) => {
-    button.addEventListener("click", () => {
-      group
-        .querySelectorAll("button")
-        .forEach((b) => b.classList.remove("selected"));
-      button.classList.add("selected");
-    });
-  });
-});
-
 const PRODUCTS = {
   MK514: {
     id: "MK514",
@@ -42,5 +30,19 @@ function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.push(product);
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Item added to cart!"); //Replace with animation//
+  alert("Item added to cart!");
 }
+
+// Only one button per group can be selected//
+window.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".option-group").forEach((group) => {
+    group.querySelectorAll("button").forEach((button) => {
+      button.addEventListener("click", () => {
+        group
+          .querySelectorAll("button")
+          .forEach((b) => b.classList.remove("selected"));
+        button.classList.add("selected");
+      });
+    });
+  });
+});
