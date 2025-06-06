@@ -83,8 +83,29 @@ function handleAddToCart() {
 
   if (cartIconMobile) {
     cartIconMobile.src = "../assets/images/ShoppingCart_Item.png";
+    shakeIcon(cartIconMobile);
   }
+
   if (cartIconDesktop) {
     cartIconDesktop.src = "../assets/images/ShoppingCart_Item.png";
+    shakeIcon(cartIconDesktop);
   }
+}
+
+function shakeIcon(icon) {
+  if (!icon) return;
+
+  // Remove the class first
+  icon.classList.remove("shake");
+
+  // Trigger reflow to restart animation
+  void icon.offsetWidth;
+
+  // Add the class back
+  icon.classList.add("shake");
+
+  // Optional: Remove class again after animation to clean up
+  setTimeout(() => {
+    icon.classList.remove("shake");
+  }, 500); // matches animation duration
 }
