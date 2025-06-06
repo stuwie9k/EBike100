@@ -15,8 +15,7 @@ function loadCart() {
 
   cartContainer.classList.remove("empty");
   cartContainer.classList.add("full");
-  cartContainer.innerHTML =
-    "<h2>Your Bag (" + cart.length + ')</h2><div class="cart-items"></div>';
+  cartContainer.innerHTML = `<h2>Your Bag (${cart.length})</h2><div class="cart-items"></div>`;
 
   const itemsContainer = cartContainer.querySelector(".cart-items");
   let subtotal = 0;
@@ -51,6 +50,12 @@ function removeItem(id) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart = cart.filter((item) => item.id !== id);
   localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Check if cart is now empty after item is removed
+  if (cart.length === 0) {
+    localStorage.setItem("cartHasItems", "false");
+  }
+
   loadCart();
 }
 

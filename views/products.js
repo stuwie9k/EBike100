@@ -30,6 +30,9 @@ function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.push(product);
   localStorage.setItem("cart", JSON.stringify(cart));
+
+  // Set flag that cart has items
+  localStorage.setItem("cartHasItems", "true");
 }
 
 // Only one button per group can be selected//
@@ -68,7 +71,7 @@ function handleAddToCart() {
 
   addToCart(product);
 
-  // ✅ Animate button visually
+  // Animate button visually
   button.classList.add("added");
   button.innerHTML = `<span class="tick">✓</span> Added`;
 
