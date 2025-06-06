@@ -109,35 +109,6 @@ button.selected {
   border: 1px solid black;
 }
 
-.add-to-cart {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding: 12px;
-  width: 100%;
-  background-color: #ffc107;
-  border: none;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 30px;
-  color: black;
-  cursor: pointer;
-  transition: background 0.3s, color 0.3s;
-}
-
-.add-to-cart.added {
-  background: black;
-  color: white;
-}
-
-.add-to-cart .tick {
-  display: none;
-  margin-right: 6px;
-}
-
-.add-to-cart.added .tick {
-  display: inline;
-}
-
 .accordion-item {
   border-top: 1px solid #ccc;
   padding: 16px 0;

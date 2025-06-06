@@ -75,5 +75,16 @@ function handleAddToCart() {
   setTimeout(() => {
     button.classList.remove("added");
     button.innerHTML = `Add to Cart`;
-  }, 2000);
+  }, 2500);
+
+  // Change cart icon image after adding to cart
+  const cartIconMobile = document.getElementById("cart-icon-mobile");
+  const cartIconDesktop = document.getElementById("cart-icon-desktop");
+
+  if (cartIconMobile) {
+    cartIconMobile.src = "../assets/images/ShoppingCart_Item.png";
+  }
+  if (cartIconDesktop) {
+    cartIconDesktop.src = "../assets/images/ShoppingCart_Item.png";
+  }
 }
