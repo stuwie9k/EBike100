@@ -26,14 +26,15 @@ function loadCart() {
     const itemDiv = document.createElement("div");
     itemDiv.className = "cart-item";
     itemDiv.innerHTML = `
-        <img src="${item.image}" alt="${item.name}" style="height:80px;" />
-        <div>
-          <strong>${item.name}</strong><br/>
-          <span>${item.description}</span><br/>
-          <a href="#" onclick="removeItem('${item.id}')">Remove</a>
-        </div>
-        <div>$${item.price.toFixed(2)} AUD</div>
-      `;
+  <img src="${item.image}" alt="${item.name}" style="height:80px;" />
+  <div>
+    <strong>${item.name}</strong><br/>
+    Battery: ${item.battery || "N/A"}<br/>
+    Wheel Size: ${item.wheelSize || "N/A"} inch<br/>
+    <a href="#" onclick="removeItem('${item.id}')">Remove</a>
+  </div>
+  <div>$${item.price.toFixed(2)} AUD</div>
+`;
     itemsContainer.appendChild(itemDiv);
   });
 

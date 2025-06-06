@@ -1,11 +1,25 @@
-// document.addEventListener("DOMContentLoaded", () => {
-// document.querySelectorAll(".accordion-item h3").forEach((header) => {
-// header.addEventListener("click", () => {
-// const content = header.nextElementSibling;
-// content.style.display =
-// content.style.display === "block" ? "none" : "block";
-// });
-//  });
+// Collapse function in product details //
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".accordion-item h3").forEach((header) => {
+    header.addEventListener("click", () => {
+      const content = header.nextElementSibling;
+      content.style.display =
+        content.style.display === "block" ? "none" : "block";
+    });
+  });
+});
+
+// Only one button per group can be selected//
+document.querySelectorAll(".option-group").forEach((group) => {
+  group.querySelectorAll("button").forEach((button) => {
+    button.addEventListener("click", () => {
+      group
+        .querySelectorAll("button")
+        .forEach((b) => b.classList.remove("selected"));
+      button.classList.add("selected");
+    });
+  });
+});
 
 const PRODUCTS = {
   MK514: {

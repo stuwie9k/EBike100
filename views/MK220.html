@@ -93,15 +93,15 @@
           <div class="options">
             <label>Battery Capacity</label>
             <div class="option-group">
-              <button>48V 30AH</button>
-              <button>48V 40AH</button>
-              <button>48V 80AH</button>
+              <button type="button" data-value="48V 30AH">48V 30AH</button>
+              <button type="button" data-value="48V 40AH">48V 40AH</button>
+              <button type="button" data-value="48V 80AH">48V 80AH</button>
             </div>
             <label>Wheel Size (inch)</label>
             <div class="option-group">
-              <button>14</button>
-              <button>18</button>
-              <button>20</button>
+              <button type="button" data-value="14">14</button>
+              <button type="button" data-value="18">18</button>
+              <button type="button" data-value="20">20</button>
             </div>
           </div>
 
@@ -133,7 +133,28 @@
     <script src="products.js"></script>
     <script>
       function handleAddToCart() {
-        addToCart(PRODUCTS.MK220);
+        const batteryBtn = document.querySelector("#battery-options .selected");
+        const wheelBtn = document.querySelector("#wheel-options .selected");
+
+        if (!batteryBtn || !wheelBtn) {
+          alert("Please select battery capacity and wheel size.");
+          return;
+        }
+
+        const selectedBattery = batteryBtn.dataset.value;
+        const selectedWheel = wheelBtn.dataset.value;
+
+        // Get the correct base product
+        const baseProduct = PRODUCTS.MK220; // or PRODUCTS.MK514 depending on the page
+
+        // Create full product with selected options
+        const product = {
+          ...baseProduct,
+          battery: selectedBattery,
+          wheelSize: selectedWheel,
+        };
+
+        addToCart(product); // <-- this calls your original addToCart() function
       }
     </script>
   </body>
