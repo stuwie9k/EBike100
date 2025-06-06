@@ -30,7 +30,6 @@ function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.push(product);
   localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Item added to cart!");
 }
 
 // Only one button per group can be selected//
@@ -46,3 +45,35 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+function handleAddToCart() {
+  const batteryBtn = document.querySelector("#battery-options .selected");
+  const wheelBtn = document.querySelector("#wheel-options .selected");
+  const button = document.querySelector(".add-to-cart");
+
+  if (!batteryBtn || !wheelBtn) {
+    alert("Please select battery capacity and wheel size.");
+    return;
+  }
+
+  const selectedBattery = batteryBtn.dataset.value;
+  const selectedWheel = wheelBtn.dataset.value;
+
+  const baseProduct = PRODUCTS.MK220; // or MK514 for that page
+  const product = {
+    ...baseProduct,
+    battery: selectedBattery,
+    wheelSize: selectedWheel,
+  };
+
+  addToCart(product);
+
+  // ✅ Animate button visually
+  button.classList.add("added");
+  button.innerHTML = `<span class="tick">✓</span> Added`;
+
+  setTimeout(() => {
+    button.classList.remove("added");
+    button.innerHTML = `Add to Cart`;
+  }, 2000);
+}

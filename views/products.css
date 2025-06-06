@@ -119,7 +119,23 @@ button.selected {
   font-size: 1rem;
   font-weight: bold;
   border-radius: 30px;
+  color: black;
   cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+.add-to-cart.added {
+  background: black;
+  color: white;
+}
+
+.add-to-cart .tick {
+  display: none;
+  margin-right: 6px;
+}
+
+.add-to-cart.added .tick {
+  display: inline;
 }
 
 .accordion-item {

@@ -137,31 +137,5 @@
     </main>
 
     <script src="products.js"></script>
-    <script>
-      function handleAddToCart() {
-        const batteryBtn = document.querySelector("#battery-options .selected");
-        const wheelBtn = document.querySelector("#wheel-options .selected");
-
-        if (!batteryBtn || !wheelBtn) {
-          alert("Please select battery capacity and wheel size.");
-          return;
-        }
-
-        const selectedBattery = batteryBtn.dataset.value;
-        const selectedWheel = wheelBtn.dataset.value;
-
-        // Get the correct base product
-        const baseProduct = PRODUCTS.MK514; // or PRODUCTS.MK220 depending on the page
-
-        // Create full product with selected options
-        const product = {
-          ...baseProduct,
-          battery: selectedBattery,
-          wheelSize: selectedWheel,
-        };
-
-        addToCart(product); // <-- this calls your original addToCart() function
-      }
-    </script>
   </body>
 </html>
