@@ -36,7 +36,7 @@ function loadCart() {
     }
   </div>
   <div class="cart-item-remove">
-    <a href="#" onclick="removeItem('${item.id}')">Remove</a>
+    <a href="#" onclick="removeItem('${item.cartId}')">Remove</a>
   </div>
 </div>
   <div class="cart-item-summary">
@@ -62,17 +62,29 @@ function loadCart() {
   cartContainer.appendChild(summary);
 }
 
-function removeItem(id) {
+function removeItem(cartId) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart = cart.filter((item) => item.id !== id);
+  cart = cart.filter((item) => item.cartId !== cartId);
   localStorage.setItem("cart", JSON.stringify(cart));
 
-  // Check if cart is now empty after item is removed
+  const cartContainer = document.getElementById("cart-container");
+
   if (cart.length === 0) {
     localStorage.setItem("cartHasItems", "false");
-  }
 
-  loadCart();
+    // Clear and reset to empty state
+    cartContainer.classList.remove("full");
+    cartContainer.classList.add("empty");
+    cartContainer.innerHTML = `
+      <h2>Your Cart is Empty</h2>
+      <p>Once you add something to your cart, it will appear here. Ready to start shopping?</p>
+      <button class="shop-btn" onclick="window.location.href='productpage.html'">
+        Shop Now
+      </button>
+    `;
+  } else {
+    loadCart();
+  }
 }
 
 window.onload = loadCart;

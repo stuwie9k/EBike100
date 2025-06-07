@@ -1,10 +1,23 @@
 // Collapse function in product details //
+
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".accordion-item h3").forEach((header) => {
     header.addEventListener("click", () => {
       const content = header.nextElementSibling;
       content.style.display =
         content.style.display === "block" ? "none" : "block";
+    });
+  });
+
+  // Only one button per group can be selected
+  document.querySelectorAll(".option-group").forEach((group) => {
+    group.querySelectorAll("button").forEach((button) => {
+      button.addEventListener("click", () => {
+        group
+          .querySelectorAll("button")
+          .forEach((b) => b.classList.remove("selected"));
+        button.classList.add("selected");
+      });
     });
   });
 });
@@ -30,24 +43,8 @@ function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.push(product);
   localStorage.setItem("cart", JSON.stringify(cart));
-
-  // Set flag that cart has items
   localStorage.setItem("cartHasItems", "true");
 }
-
-// Only one button per group can be selected//
-window.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".option-group").forEach((group) => {
-    group.querySelectorAll("button").forEach((button) => {
-      button.addEventListener("click", () => {
-        group
-          .querySelectorAll("button")
-          .forEach((b) => b.classList.remove("selected"));
-        button.classList.add("selected");
-      });
-    });
-  });
-});
 
 function handleAddToCart() {
   const batteryBtn = document.querySelector("#battery-options .selected");
@@ -62,16 +59,16 @@ function handleAddToCart() {
   const selectedBattery = batteryBtn.dataset.value;
   const selectedWheel = wheelBtn.dataset.value;
 
-  const baseProduct = PRODUCTS.MK220; // or MK514 for that page
+  const baseProduct = PRODUCTS.MK220; // or switch to MK514 depending on the product page
   const product = {
     ...baseProduct,
     battery: selectedBattery,
     wheelSize: selectedWheel,
+    cartId: Date.now().toString(), // Unique cart item ID
   };
 
   addToCart(product);
 
-  // Animate button visually
   button.classList.add("added");
   button.innerHTML = `<span class="tick">✓</span> Added`;
 
@@ -80,7 +77,6 @@ function handleAddToCart() {
     button.innerHTML = `Add to Cart`;
   }, 2500);
 
-  // Change cart icon image after adding to cart
   const cartIconMobile = document.getElementById("cart-icon-mobile");
   const cartIconDesktop = document.getElementById("cart-icon-desktop");
 
@@ -88,7 +84,6 @@ function handleAddToCart() {
     cartIconMobile.src = "../assets/images/ShoppingCart_Item.png";
     shakeIcon(cartIconMobile);
   }
-
   if (cartIconDesktop) {
     cartIconDesktop.src = "../assets/images/ShoppingCart_Item.png";
     shakeIcon(cartIconDesktop);
@@ -97,18 +92,10 @@ function handleAddToCart() {
 
 function shakeIcon(icon) {
   if (!icon) return;
-
-  // Remove the class first
   icon.classList.remove("shake");
-
-  // Trigger reflow to restart animation
   void icon.offsetWidth;
-
-  // Add the class back
   icon.classList.add("shake");
-
-  // Optional: Remove class again after animation to clean up
   setTimeout(() => {
     icon.classList.remove("shake");
-  }, 500); // matches animation duration
+  }, 500);
 }
