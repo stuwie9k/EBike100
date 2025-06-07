@@ -78,7 +78,7 @@ function loadCart() {
   summary.className = "cart-summary";
   summary.innerHTML = `
     <div><strong>Subtotal</strong> $${subtotal.toFixed(2)} AUD</div>
-    <button class="checkout-btn">Checkout</button>
+    <button onclick="window.location.href='checkout.html'" class="checkout-btn">Checkout</button>
   `;
   cartContainer.appendChild(summary);
 }
