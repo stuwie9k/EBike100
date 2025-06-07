@@ -25,14 +25,30 @@ function loadCart() {
     const itemDiv = document.createElement("div");
     itemDiv.className = "cart-item";
     itemDiv.innerHTML = `
-  <img src="${item.image}" alt="${item.name}" style="height:80px;" />
-  <div>
-    <strong>${item.name}</strong><br/>
-    Battery: ${item.battery || "N/A"}<br/>
-    Wheel Size: ${item.wheelSize || "N/A"} inch<br/>
+  <div class="cart-item-img">
+    <img src="${item.image}" alt="${item.name}" />
+  </div>
+  <div class="cart-item-details">
+  <div class="cart-item-title"><strong>${item.name}</strong></div>
+  <div class="cart-item-specs">
+    Battery Capacity ${item.battery || "N/A"} / Wheel Size (inch) ${
+      item.wheelSize || "N/A"
+    }
+  </div>
+  <div class="cart-item-remove">
     <a href="#" onclick="removeItem('${item.id}')">Remove</a>
   </div>
-  <div>$${item.price.toFixed(2)} AUD</div>
+</div>
+  <div class="cart-item-summary">
+  <div class="qty-price">
+    <select class="quantity-select">
+      <option value="1" selected>1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+    <span class="item-price">$${item.price.toFixed(2)} AUD</span>
+  </div>
+</div>
 `;
     itemsContainer.appendChild(itemDiv);
   });
