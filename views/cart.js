@@ -4,12 +4,33 @@ document.querySelectorAll(".cart-toggle").forEach((icon) => {
   });
 });
 
+function updateCartIconToEmpty() {
+  const cartIconMobile = document.getElementById("cart-icon-mobile");
+  const cartIconDesktop = document.getElementById("cart-icon-desktop");
+
+  if (cartIconMobile) {
+    cartIconMobile.src = "../assets/images/ShoppingCart.png";
+  }
+  if (cartIconDesktop) {
+    cartIconDesktop.src = "../assets/images/ShoppingCart.png";
+  }
+}
+
 function loadCart() {
   const cartContainer = document.getElementById("cart-container");
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   if (cart.length === 0) {
+    cartContainer.classList.remove("full");
     cartContainer.classList.add("empty");
+    cartContainer.innerHTML = `
+      <h2>Your Cart is Empty</h2>
+      <p>Once you add something to your cart, it will appear here. Ready to start shopping?</p>
+      <button class="shop-btn" onclick="window.location.href='productpage.html'">
+        Shop Now
+      </button>
+    `;
+    updateCartIconToEmpty();
     return;
   }
 
@@ -25,40 +46,40 @@ function loadCart() {
     const itemDiv = document.createElement("div");
     itemDiv.className = "cart-item";
     itemDiv.innerHTML = `
-  <div class="cart-item-img">
-    <img src="${item.image}" alt="${item.name}" />
-  </div>
-  <div class="cart-item-details">
-  <div class="cart-item-title"><strong>${item.name}</strong></div>
-  <div class="cart-item-specs">
-    Battery Capacity ${item.battery || "N/A"} / Wheel Size (inch) ${
+      <div class="cart-item-img">
+        <img src="${item.image}" alt="${item.name}" />
+      </div>
+      <div class="cart-item-details">
+        <div class="cart-item-title"><strong>${item.name}</strong></div>
+        <div class="cart-item-specs">
+          Battery Capacity ${item.battery || "N/A"} / Wheel Size (inch) ${
       item.wheelSize || "N/A"
     }
-  </div>
-  <div class="cart-item-remove">
-    <a href="#" onclick="removeItem('${item.cartId}')">Remove</a>
-  </div>
-</div>
-  <div class="cart-item-summary">
-  <div class="qty-price">
-    <select class="quantity-select">
-      <option value="1" selected>1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-    </select>
-    <span class="item-price">$${item.price.toFixed(2)} AUD</span>
-  </div>
-</div>
-`;
+        </div>
+        <div class="cart-item-remove">
+          <a href="#" onclick="removeItem('${item.cartId}')">Remove</a>
+        </div>
+      </div>
+      <div class="cart-item-summary">
+        <div class="qty-price">
+          <select class="quantity-select">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+          <span class="item-price">$${item.price.toFixed(2)} AUD</span>
+        </div>
+      </div>
+    `;
     itemsContainer.appendChild(itemDiv);
   });
 
   const summary = document.createElement("div");
   summary.className = "cart-summary";
   summary.innerHTML = `
-      <div><strong>Subtotal</strong> $${subtotal.toFixed(2)} AUD</div>
-      <button class="checkout-btn">Checkout</button>
-    `;
+    <div><strong>Subtotal</strong> $${subtotal.toFixed(2)} AUD</div>
+    <button class="checkout-btn">Checkout</button>
+  `;
   cartContainer.appendChild(summary);
 }
 
@@ -67,12 +88,11 @@ function removeItem(cartId) {
   cart = cart.filter((item) => item.cartId !== cartId);
   localStorage.setItem("cart", JSON.stringify(cart));
 
-  const cartContainer = document.getElementById("cart-container");
-
   if (cart.length === 0) {
     localStorage.setItem("cartHasItems", "false");
+    updateCartIconToEmpty();
 
-    // Clear and reset to empty state
+    const cartContainer = document.getElementById("cart-container");
     cartContainer.classList.remove("full");
     cartContainer.classList.add("empty");
     cartContainer.innerHTML = `

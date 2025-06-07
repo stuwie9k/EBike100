@@ -1,5 +1,3 @@
-// Collapse function in product details //
-
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".accordion-item h3").forEach((header) => {
     header.addEventListener("click", () => {
@@ -39,6 +37,13 @@ const PRODUCTS = {
   },
 };
 
+function getProductByPage() {
+  const path = window.location.pathname;
+  if (path.includes("MK514")) return PRODUCTS.MK514;
+  if (path.includes("MK220")) return PRODUCTS.MK220;
+  return PRODUCTS.MK220; // default fallback
+}
+
 function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
   cart.push(product);
@@ -59,7 +64,7 @@ function handleAddToCart() {
   const selectedBattery = batteryBtn.dataset.value;
   const selectedWheel = wheelBtn.dataset.value;
 
-  const baseProduct = PRODUCTS.MK220; // or switch to MK514 depending on the product page
+  const baseProduct = getProductByPage();
   const product = {
     ...baseProduct,
     battery: selectedBattery,
