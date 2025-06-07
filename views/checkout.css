@@ -1,0 +1,84 @@
+.checkout-container,
+.confirmation-container {
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+  text-align: left;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+form input {
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+section label {
+  font-weight: bold;
+  display: block;
+  margin-top: 16px;
+}
+
+.checkout-totals,
+.summary-block {
+  margin-top: 30px;
+  border-top: 1px solid #ccc;
+  padding-top: 16px;
+  font-size: 0.9rem;
+}
+
+.checkout-totals div,
+.summary-block div {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+}
+
+.summary-total {
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.pay-btn,
+.continue-btn {
+  margin-top: 30px;
+  width: 100%;
+  padding: 14px;
+  background: #fbc02d;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.icon {
+  display: block;
+  margin: 40px auto 20px;
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+  text-align: center;
+}
+
+@media (min-width: 769px) {
+  .checkout-container,
+  .confirmation-container {
+    max-width: 700px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .pay-btn,
+  .continue-btn {
+    font-size: 1.1rem;
+  }
+}

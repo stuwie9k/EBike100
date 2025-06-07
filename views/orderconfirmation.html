@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EBike100 MK220</title>
+    <link rel="stylesheet" href="orderconfirmation.css" />
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="navbar">
+      <div class="navbar-top">
+        <div class="logo">
+          <a href="../Ebike.html">
+            <img
+              src="../assets/images/whiteLogo.png"
+              alt="Logo Icon"
+              class="logo-icon"
+            />
+          </a>
+        </div>
+
+        <!-- Cart and Hamburger Icon for Mobile -->
+        <div class="navbar-icons">
+          <div class="cart-icon-mobile">
+            <a href="cart.html">
+              <img
+                src="../assets/images/ShoppingCart.png"
+                alt="Cart Icon"
+                class="icon-sm cart-icon"
+                id="cart-icon-mobile"
+              />
+            </a>
+          </div>
+          <div class="menu-toggle">☰</div>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="../EBike.html">Home</a>
+        <a href="productpage.html" class="active">E-Bikes</a>
+        <a href="#">Accessories</a>
+        <a href="#">Services</a>
+        <a href="#">About Us</a>
+        <a href="#">News</a>
+        <a href="#">Contact</a>
+      </nav>
+
+      <div class="search-container">
+        <div class="search-wrapper">
+          <input type="text" placeholder="Search" />
+          <button class="search-btn">
+            <img
+              src="../assets/images/SearchIcon.png"
+              alt="Search Icon"
+              class="icon-sm"
+            />
+          </button>
+        </div>
+
+        <!-- Cart Icon for Desktop -->
+        <div class="cart-icon-desktop">
+          <a href="cart.html">
+            <img
+              src="../assets/images/ShoppingCart.png"
+              alt="Cart Icon"
+              class="icon-sm cart-icon"
+              id="cart-icon-desktop"
+            />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Order Confirmation HTML -->
+
+    <main class="confirmation-container">
+      <img
+        src="../assets/images/confetti-icon.png"
+        alt="Celebration"
+        class="icon"
+      />
+      <h1>Order Completed!</h1>
+      <p>Order Number: #<span id="order-id">123456</span></p>
+
+      <hr />
+
+      <div class="summary-block">
+        <div>
+          <span>Subtotal</span><span id="confirm-subtotal">$0.00 AUD</span>
+        </div>
+        <div><span>Shipping</span><span>FREE</span></div>
+        <div class="summary-total">
+          <strong>Summary</strong><strong id="confirm-total">$0.00 AUD</strong>
+        </div>
+      </div>
+
+      <button
+        onclick="window.location.href='productpage.html'"
+        class="continue-btn"
+      >
+        Continue Shopping
+      </button>
+    </main>
+
+    <script src="orderconfirmation.js"></script>
+    <script src="../main.js"></script>
+  </body>
+</html>
