@@ -97,9 +97,12 @@
           <input type="text" placeholder="City" required />
           <input type="text" placeholder="State" required />
           <input
-            type="number"
-            min="1000"
-            max="9999"
+            type="text"
+            id="postcode"
+            name="postcode"
+            inputmode="numeric"
+            pattern="\d{4}"
+            maxlength="4"
             placeholder="Postcode"
             required
           />
@@ -108,24 +111,32 @@
         <section>
           <label>Credit Card Details</label>
           <input
-            type="numner"
+            type="text"
             id="card-number"
             name="card-number"
-            autocomplete="cc-number"
+            inputmode="numeric"
+            pattern="\d{16}"
             maxlength="16"
             placeholder="Card Number"
             required
           />
           <input
-            type="number"
+            type="text"
+            id="expiry"
+            inputmode="numeric"
+            pattern="\d{4}"
             maxlength="4"
-            placeholder="Expiration date (MM / YY)"
+            placeholder="MM/YY"
             required
           />
           <input
-            type="number"
+            type="text"
+            id="security-code"
+            name="security-code"
+            inputmode="numeric"
+            pattern="\d{3,4}"
             maxlength="4"
-            placeholder="Security code"
+            placeholder="CVV"
             required
           />
           <input type="text" placeholder="Name on card" required />
