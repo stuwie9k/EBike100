@@ -38,13 +38,19 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
 
       const orderNumber = Math.floor(100000 + Math.random() * 900000);
-      localStorage.setItem("orderNumber", orderNumber); // Set order number ONCE
-
+      localStorage.setItem("orderNumber", orderNumber);
       localStorage.setItem("lastOrderTotal", subtotal.toFixed(2));
       localStorage.removeItem("cart");
       localStorage.setItem("cartHasItems", "false");
 
-      window.location.href = "orderconfirmation.html";
+      // Show loading overlay
+      const overlay = document.getElementById("loading-overlay");
+      overlay.classList.remove("hidden");
+
+      // Delay to simulate processing
+      setTimeout(() => {
+        window.location.href = "orderconfirmation.html";
+      }, 1500); // 1.5 seconds delay
     });
   }
 
