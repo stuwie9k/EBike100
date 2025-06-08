@@ -80,7 +80,7 @@ function handleAddToCart() {
   setTimeout(() => {
     button.classList.remove("added");
     button.innerHTML = `Add to Cart`;
-  }, 2500);
+  }, 3500);
 
   const cartIconMobile = document.getElementById("cart-icon-mobile");
   const cartIconDesktop = document.getElementById("cart-icon-desktop");

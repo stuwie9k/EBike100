@@ -41,6 +41,10 @@ main {
   font-weight: 600;
 }
 
+.shop-btn:hover {
+  background-color: #e7aa01de;
+}
+
 /* Full Cart Text */
 
 .cart-container.full {
@@ -142,6 +146,10 @@ main {
   letter-spacing: -0.25px;
   font-size: 0.85rem;
   font-weight: 600;
+}
+
+.checkout-btn:hover {
+  background-color: #e7aa01de;
 }
 
 .quantity-select {

@@ -45,12 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Show loading overlay
       const overlay = document.getElementById("loading-overlay");
-      overlay.classList.remove("hidden");
+      overlay.classList.add("show");
 
-      // Delay to simulate processing
+      // Delay before redirecting to order confirmation
       setTimeout(() => {
         window.location.href = "orderconfirmation.html";
-      }, 1500); // 1.5 seconds delay
+      }, 4500); // 4.5 seconds delay
     });
   }
 

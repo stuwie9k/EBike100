@@ -149,6 +149,10 @@ body {
   display: inline;
 }
 
+.add-to-cart:hover {
+  background-color: #e7aa01de;
+}
+
 @keyframes shake {
   0% {
     transform: translateX(0);
