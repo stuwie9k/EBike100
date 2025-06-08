@@ -82,7 +82,23 @@ section label {
   text-align: center;
 }
 
-@media (min-width: 769px) {
+/* Product container */
+.checkout-summary-box {
+  background-color: #f2f2f2; /* Light grey background */
+  padding: 16px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.checkout-summary-box #checkout-cart-summary > div {
+  padding: 10px 0;
+}
+
+.checkout-summary-box #checkout-cart-summary > div:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 768px) {
   .checkout-container,
   .confirmation-container {
     max-width: 700px;

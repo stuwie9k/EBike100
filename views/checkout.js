@@ -29,63 +29,29 @@ document.addEventListener("DOMContentLoaded", () => {
   totalEl.textContent = `$${subtotal.toFixed(2)} AUD`;
 
   form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const inputs = form.querySelectorAll("input[required]");
-    let allValid = true;
-
-    // Clear previous error states/messages
-    inputs.forEach((input) => {
-      input.classList.remove("error");
-      const msg = input.nextElementSibling;
-      if (msg && msg.classList.contains("error-message")) {
-        msg.remove();
-      }
-    });
-
-    // Validate all required inputs
-    inputs.forEach((input) => {
-      if (!input.value.trim()) {
-        allValid = false;
-        input.classList.add("error");
-
-        const error = document.createElement("div");
-        error.className = "error-message";
-        error.textContent = "This field is required";
-        input.after(error);
-      }
-    });
-
-    if (!allValid) {
-      // Optionally scroll to top of form
-      form.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!form.checkValidity()) {
+      // Let browser handle native validation
       return;
     }
 
-    // If valid: clear cart and redirect
+    e.preventDefault(); // If valid, continue
     localStorage.removeItem("cart");
     localStorage.setItem("cartHasItems", "false");
     window.location.href = "confirmation.html";
   });
-});
 
-// Prevents text to be typed at MM/YY
+  // Keep forcing numeric-only input
+  const forceNumeric = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.addEventListener("input", () => {
+        el.value = el.value.replace(/\D/g, "");
+      });
+    }
+  };
 
-const expiryInput = document.getElementById("expiry");
-
-expiryInput.addEventListener("input", () => {
-  // Replace anything that's not a digit
-  expiryInput.value = expiryInput.value.replace(/\D/g, "");
-});
-
-const cvvInput = document.getElementById("security-code");
-
-cvvInput.addEventListener("input", () => {
-  cvvInput.value = cvvInput.value.replace(/\D/g, ""); // Remove non-digits
-});
-
-const postcodeInput = document.getElementById("postcode");
-
-postcodeInput.addEventListener("input", () => {
-  postcodeInput.value = postcodeInput.value.replace(/\D/g, ""); // Remove non-digits
+  forceNumeric("card-number");
+  forceNumeric("expiry");
+  forceNumeric("security-code");
+  forceNumeric("postcode");
 });
