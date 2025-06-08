@@ -7,40 +7,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let subtotal = 0;
 
-  cart.forEach((item) => {
-    subtotal += item.price;
+  if (summaryContainer && cart.length > 0) {
+    cart.forEach((item) => {
+      subtotal += item.price;
 
-    const itemDiv = document.createElement("div");
-    itemDiv.style.margin = "10px 0";
-    itemDiv.innerHTML = `
-        <div style="display:flex; align-items:center; gap:10px;">
-          <img src="${item.image}" style="width:50px;height:auto;" />
-          <div style="font-size:0.85rem;">
-            <strong>${item.name}</strong><br/>
-            Battery: ${item.battery} / Wheel: ${item.wheelSize} inch
-          </div>
-          <div style="margin-left:auto;">$${item.price.toFixed(2)} AUD</div>
-        </div>
-      `;
-    summaryContainer.appendChild(itemDiv);
-  });
+      const itemDiv = document.createElement("div");
+      itemDiv.style.margin = "10px 0";
+      itemDiv.innerHTML = `
+           <div class="checkout-item-row">
+    <img src="${item.image}" class="checkout-item-img" />
+    <div class="checkout-item-details">
+      <strong>${item.name}</strong><br/>
+      Battery: ${item.battery} / Wheel: ${item.wheelSize} inch
+    </div>
+    <div class="checkout-item-price">
+      $${item.price.toFixed(2)} AUD
+    </div>
+  </div>
+        `;
+      summaryContainer.appendChild(itemDiv);
+    });
 
-  subtotalEl.textContent = `$${subtotal.toFixed(2)} AUD`;
-  totalEl.textContent = `$${subtotal.toFixed(2)} AUD`;
+    if (subtotalEl) subtotalEl.textContent = `$${subtotal.toFixed(2)} AUD`;
+    if (totalEl) totalEl.textContent = `$${subtotal.toFixed(2)} AUD`;
+  }
 
-  form.addEventListener("submit", (e) => {
-    if (!form.checkValidity()) {
-      // Let browser handle native validation
-      return;
-    }
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      if (!form.checkValidity()) return;
 
-    e.preventDefault(); // If valid, continue
-    localStorage.removeItem("cart");
-    localStorage.setItem("cartHasItems", "false");
-    window.location.href = "confirmation.html";
-  });
+      e.preventDefault();
+      localStorage.removeItem("cart");
+      localStorage.setItem("cartHasItems", "false");
+      window.location.href = "confirmation.html";
+    });
+  }
 
-  // Keep forcing numeric-only input
   const forceNumeric = (id) => {
     const el = document.getElementById(id);
     if (el) {
@@ -50,8 +52,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  forceNumeric("card-number");
-  forceNumeric("expiry");
-  forceNumeric("security-code");
-  forceNumeric("postcode");
+  ["card-number", "expiry", "security-code", "postcode"].forEach(forceNumeric);
 });
