@@ -8,58 +8,86 @@
 main {
   background-color: #ffffff;
   color: #000000;
-}
-
-.confirmation-container {
-  padding: 20px;
+  padding: 24px;
   text-align: center;
 }
 
-.confirmation-icon {
-  width: 100px;
-  margin: 40px auto 20px;
+.confirmation-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.icon {
+  display: block;
+  width: 300px; /* 🔼 Increased size */
+  height: auto;
+  margin: 15px auto 30px; /* More top spacing */
+  object-fit: contain;
 }
 
 h1 {
   font-size: 1.5rem;
-  margin-bottom: 10px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
 }
 
-.order-number {
-  font-size: 0.9rem;
+.order-label {
+  font-weight: 350;
+}
+
+#order-id {
+  font-size: 0.95rem;
   color: #555;
-  margin-bottom: 30px;
+  font-weight: 200;
+  margin-bottom: 24px;
+  display: inline-block;
 }
 
 hr {
   border: none;
   border-top: 1px solid #ccc;
-  margin: 20px 0;
+  margin: 24px 0;
 }
 
-.confirmation-summary {
-  font-size: 0.9rem;
+.summary-block {
+  font-size: 0.95rem;
   text-align: left;
-  margin-bottom: 30px;
+  margin: 0 auto 32px;
+  max-width: 500px;
 }
 
-.confirmation-summary div {
+.summary-block > div {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .summary-total {
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 1rem;
 }
 
 .continue-btn {
+  margin-top: 30px;
   width: 100%;
-  padding: 12px 0;
-  background-color: #fbc02d;
+  max-width: 500px; /* ✅ Matches .summary-block width */
+  margin: 30px auto 0 auto;
+  padding: 14px;
+  background: #fbc02d;
   border: none;
   border-radius: 30px;
+  font-size: 0.85rem;
   font-weight: 600;
-  font-size: 0.95rem;
+  letter-spacing: -0.5px;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .icon {
+    width: 250px; /* 🔼 Increased size */
+    height: auto;
+    margin: 15px auto 30px; /* More top spacing */
+  }
 }

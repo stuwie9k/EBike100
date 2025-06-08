@@ -39,7 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       localStorage.removeItem("cart");
       localStorage.setItem("cartHasItems", "false");
-      window.location.href = "confirmation.html";
+      localStorage.setItem("lastOrderTotal", subtotal.toFixed(2)); // Stores subtotal before it redirects
+      window.location.href = "orderconfirmation.html";
     });
   }
 

@@ -1,23 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Generate and display a random 6-digit order number
-  const orderId = Math.floor(100000 + Math.random() * 900000);
-  document.getElementById("order-id").textContent = orderId;
-
-  // Get subtotal from localStorage (set in checkout.js before redirect)
-  const subtotal = localStorage.getItem("lastOrderTotal");
-
-  // If available, populate the subtotal and total
-  if (subtotal) {
-    document.getElementById("summary-subtotal").textContent = `${subtotal} AUD`;
-    document.getElementById("summary-total").textContent = `${subtotal} AUD`;
-  } else {
-    // Fallback if no data found
-    document.getElementById("summary-subtotal").textContent = "$0.00 AUD";
-    document.getElementById("summary-total").textContent = "$0.00 AUD";
+  // Generate and display random 6-digit order number
+  const randomOrderNumber = Math.floor(100000 + Math.random() * 900000);
+  const orderIdEl = document.getElementById("order-id");
+  if (orderIdEl) {
+    orderIdEl.textContent = randomOrderNumber;
   }
 
-  // Clear cart and temporary data
+  // Retrieve and display last order total
+  const total = localStorage.getItem("lastOrderTotal");
+  if (total) {
+    document.getElementById("confirm-subtotal").textContent = `$${total} AUD`;
+    document.getElementById("confirm-total").textContent = `$${total} AUD`;
+  }
+
+  // Clean up cart (but NOT total)
   localStorage.removeItem("cart");
   localStorage.setItem("cartHasItems", "false");
-  localStorage.removeItem("lastOrderTotal");
+
+  // Clear lastOrderTotal ONLY when user continues shopping
+  const continueBtn = document.querySelector(".continue-btn");
+  if (continueBtn) {
+    continueBtn.addEventListener("click", () => {
+      localStorage.removeItem("lastOrderTotal");
+      window.location.href = "productpage.html";
+    });
+  }
 });
