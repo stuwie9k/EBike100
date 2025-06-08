@@ -92,19 +92,43 @@
 
         <section>
           <label>Billing address</label>
-          <input placeholder="Name" required />
-          <input placeholder="Address" required />
-          <input placeholder="City" required />
-          <input placeholder="State" required />
-          <input placeholder="Postcode" required />
+          <input type="text" placeholder="Name" required />
+          <input type="text" placeholder="Address" required />
+          <input type="text" placeholder="City" required />
+          <input type="text" placeholder="State" required />
+          <input
+            type="number"
+            min="1000"
+            max="9999"
+            placeholder="Postcode"
+            required
+          />
         </section>
 
         <section>
           <label>Credit Card Details</label>
-          <input placeholder="Card number" required />
-          <input placeholder="Expiration date (MM / YY)" required />
-          <input placeholder="Security code" required />
-          <input placeholder="Name on card" required />
+          <input
+            type="numner"
+            id="card-number"
+            name="card-number"
+            autocomplete="cc-number"
+            maxlength="16"
+            placeholder="Card Number"
+            required
+          />
+          <input
+            type="number"
+            maxlength="4"
+            placeholder="Expiration date (MM / YY)"
+            required
+          />
+          <input
+            type="number"
+            maxlength="4"
+            placeholder="Security code"
+            required
+          />
+          <input type="text" placeholder="Name on card" required />
         </section>
 
         <div id="checkout-cart-summary">
