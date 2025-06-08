@@ -29,15 +29,16 @@ main {
 }
 
 .shop-btn {
-  letter-spacing: -0.25px;
-  font-weight: 600;
   margin-top: 20px;
   background: #fbc02d;
   border: none;
-  padding: 12px 24px;
+  padding: 12px 55px;
   font-size: 1rem;
   border-radius: 25px;
   cursor: pointer;
+  letter-spacing: -0.25px;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 /* Full Cart Text */

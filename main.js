@@ -29,3 +29,26 @@ window.addEventListener("DOMContentLoaded", () => {
     if (cartIconDesktop) cartIconDesktop.src = imagePath;
   }
 });
+
+// When the user press "Enter" they are redirected to product page
+document.addEventListener("DOMContentLoaded", () => {
+  const searchForm = document.getElementById("search-form");
+  const searchInput = document.getElementById("search-input");
+
+  if (searchForm && searchInput) {
+    searchForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const query = searchInput.value.trim();
+      if (query) {
+        // Redirect to productpage.html with query as URL param
+        window.location.href = `views/productpage.html?search=${encodeURIComponent(
+          query
+        )}`;
+      } else {
+        // Redirect anyway if empty
+        window.location.href = "views/productpage.html";
+      }
+    });
+  }
+});

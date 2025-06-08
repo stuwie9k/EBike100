@@ -172,17 +172,7 @@ body {
   animation: shake 0.5s ease;
 }
 
-/* === RESPONSIVE SCREEN QUERIES === */
-
-@media (max-width: 1024px) {
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-
-  .subheading {
-    font-size: 1.25rem;
-  }
-}
+/*  MOBILE SCREEN QUERIES  */
 
 /* Hamburger icon contents */
 @media (max-width: 768px) {
@@ -248,18 +238,5 @@ body {
     cursor: pointer;
     background: none;
     border: none;
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .subheading {
-    font-size: 1.1rem;
-  }
-
-  .cta-button {
-    padding: 10px 20px;
-    font-size: 0.95rem;
   }
 }
