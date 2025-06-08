@@ -35,11 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
   if (form) {
     form.addEventListener("submit", (e) => {
       if (!form.checkValidity()) return;
-
       e.preventDefault();
+
+      const orderNumber = Math.floor(100000 + Math.random() * 900000);
+      localStorage.setItem("orderNumber", orderNumber); // Set order number ONCE
+
+      localStorage.setItem("lastOrderTotal", subtotal.toFixed(2));
       localStorage.removeItem("cart");
       localStorage.setItem("cartHasItems", "false");
-      localStorage.setItem("lastOrderTotal", subtotal.toFixed(2)); // Stores subtotal before it redirects
+
       window.location.href = "orderconfirmation.html";
     });
   }

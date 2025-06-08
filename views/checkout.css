@@ -43,7 +43,7 @@ section label {
 .checkout-totals,
 .summary-block {
   margin-top: 30px;
-  border-top: 1px solid #ccc;
+  border-top: 1.5px solid #000000;
   padding-top: 16px;
   font-size: 0.9rem;
   letter-spacing: -0.5;
@@ -77,7 +77,7 @@ section label {
   border-radius: 30px;
   font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.25px;
   cursor: pointer;
 }
 
@@ -157,10 +157,5 @@ section label {
     font-size: 0.65rem;
     font-weight: 400;
     white-space: nowrap;
-  }
-
-  .pay-btn,
-  .continue-btn {
-    font-size: 1.1rem;
   }
 }
