@@ -69,6 +69,7 @@ section label {
 
 .pay-btn {
   margin-top: 30px;
+  color: #000000;
   width: 100%;
   padding: 14px;
   background: #fbc02d;
@@ -78,10 +79,6 @@ section label {
   font-weight: 600;
   letter-spacing: -0.25px;
   cursor: pointer;
-}
-
-.pay-btn:hover {
-  background-color: #e7aa01de;
 }
 
 .icon {

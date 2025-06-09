@@ -26,11 +26,13 @@ main {
 
 .cart-container.empty button {
   margin: 40px 10px;
+  color: #000000;
 }
 
 .shop-btn {
   margin-top: 20px;
   background: #fbc02d;
+  color: #000000;
   border: none;
   padding: 12px 55px;
   font-size: 1rem;
@@ -137,6 +139,7 @@ main {
 
 .checkout-btn {
   margin-top: 20px;
+  color: #000000;
   background: #fbc02d;
   border: none;
   padding: 14px 100px;

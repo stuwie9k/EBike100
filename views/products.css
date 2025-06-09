@@ -100,6 +100,7 @@ main {
 .option-group button {
   border: 1px solid #ccc;
   font-size: 0.85rem;
+  color: #000000;
   margin-top: 5px;
   text-align: center;
   min-width: 0;
